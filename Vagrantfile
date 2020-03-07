@@ -23,8 +23,8 @@ echo "vagrant.$(ip a show dev eth0 | grep -m1 inet | awk '{print $2}' | cut -d'/
 hostname -F /etc/hostname
 apk add unzip shadow openssl libcap jq
 echo "Downloading Consul..."
-curl -sSLO https://releases.hashicorp.com/consul/1.4.4/consul_1.4.4_linux_amd64.zip
-unzip consul_1.4.4_linux_amd64.zip && rm -f consul_1.4.4_linux_amd64.zip
+curl -sSLO https://releases.hashicorp.com/consul/1.7.1/consul_1.7.1_linux_amd64.zip
+unzip consul_1.7.1_linux_amd64.zip && rm -f consul_1.7.1_linux_amd64.zip
 mv consul /usr/local/bin
 chown root:root /usr/local/bin/consul
 useradd --system --home /etc/consul.d --shell /bin/false consul
@@ -127,8 +127,8 @@ cat<<EOF>/etc/consul.d/acl.hcl
 EOF
 service consul reload
 echo "Downloading Vault..."
-curl -sSLO https://releases.hashicorp.com/vault/1.1.0/vault_1.1.0_linux_amd64.zip
-unzip vault_1.1.0_linux_amd64.zip && rm -f consul_1.4.4_linux_amd64.zip
+curl -sSLO https://releases.hashicorp.com/vault/1.3.2/vault_1.3.2_linux_amd64.zip
+unzip vault_1.3.2_linux_amd64.zip && rm -f consul_1.3.2_linux_amd64.zip
 mv vault /usr/local/bin
 chown root:root /usr/local/bin/vault
 setcap cap_ipc_lock=+ep /usr/local/bin/vault
